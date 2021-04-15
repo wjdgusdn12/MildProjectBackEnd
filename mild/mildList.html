@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div calss="contriner">
+        <h2>게시판 목록</h2>
+        <table class="MildList">
+            <colgroup>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="12%"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col">뮤직번호</th>
+                    <th scope="col">카테고리번호</th>
+                    <th scope="col">장르명</th>
+                    <th scope="col">음악명</th>
+                    <th scope="col">음악이미지</th>
+                    <th scope="col">아티스트</th>
+                    <th scope="col">앨범명</th>
+                    <th scope="col">뽑아오는순위</th>
+                    <th scope="col">뮤직좋아요갯수</th>
+               </tr>
+            </thead>
+            <tbody>
+                
+                <tr th:if="${#lists.size(list)} > 0" th:each="list : ${list}">
+                    <td th:text="${list.musicNum}"></td>
+                    <td th:text="${list.categoryNum}"></td>
+                    <td th:text="${list.munsicGenre}"></td>
+                    <td th:text="${list.musicTitle}"></td>
+                    <td th:text="${list.munsicTitleImg}"></td>
+                    <td th:text="${list.musicArtist}"></td>
+                    <td th:text="${list.musicAlbum}"></td>
+                    <td th:text="${list.musicRank}"></td>
+                    <td th:text="${list.musicLike}"></td>
+                </tr>
+                <tr th:unless="${#lists.size(list)} > 0">
+                    <td colspan="9">조회결과가 222없습니다<div class=""></div></td>
+                </tr>
+
+
+
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
